@@ -125,7 +125,7 @@ export function addEventListener(
   eventName: string | symbol,
   handler: (...args: any[]) => void
 ): PuppeteerEventListener {
-  emitter.on(eventName, handler);
+  if(emitter && emitter.on) emitter.on(eventName, handler);
   return {emitter, eventName, handler};
 }
 
@@ -140,7 +140,8 @@ export function removeEventListeners(
   }>
 ): void {
   for (const listener of listeners) {
-    listener.emitter.removeListener(listener.eventName, listener.handler);
+    if(listener && listener.emitter && listener.emitter.removeListener)
+      listener.emitter.removeListener(listener.eventName, listener.handler);
   }
   listeners.length = 0;
 }
