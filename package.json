@@ -1,5 +1,5 @@
 {
-  "name": "@glutamate/puppeteer",
+  "name": "@saltcorn/puppeteer-v17",
   "version": "17.1.4-beta.0",
   "description": "A high-level API to control headless Chrome over the DevTools Protocol",
   "keywords": [
